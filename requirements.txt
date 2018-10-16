@@ -1,0 +1,6 @@
+flask
+Flask-Cors==3.0.3
+connexion
+configparser
+gunicorn
+pymongo

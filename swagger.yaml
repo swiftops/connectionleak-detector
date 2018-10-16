@@ -1,0 +1,54 @@
+swagger: '2.0'
+info:
+  description: >-
+   This Service is used to captures database connection leaks  in code.
+  version: 0.1.0
+  title: Connection-leak in code.
+  contact:
+    email: devops@digite.com
+  license:
+    name: DigiteDevOps1.0
+    url: 'http://www.digite.com'
+host: localhost:5004
+paths:
+  '/api/connectionleak/v1/findConnectionLeak':
+    post:
+        tags:
+          - ConnectionLeak - findConnectionLeak
+        summary: Capture database connection leak at run time
+        operationId: com.swiftops.connleak.ConnectionLeakCatcher.find_conn_leaks
+        responses:
+          '405':
+             description: Invalid input
+          '200':
+             description: Success
+
+  '/get_nightly_conndata':
+    post:
+      tags:
+        - ConnectionLeak - get_nightly_conndata
+      summary: Parse capptured connection leak data from caller and insert it mongo db
+      operationId: com.swiftops.connleak.Connleak_Mongo_Connector.put_nightlybuild_data
+      parameters:
+      - name: REL_NO
+        in: header
+        description: Product release No e.g 4.5.0
+        type: string
+        required: true
+      - name: BUILD_NO
+        in: header
+        description:  build number e.g 9
+        type: string
+        required: true
+      - name: data
+        in: body
+        description: connection leak log e.g content of log file Or connection leaks data
+        schema:
+          type: string
+        required: true
+      responses:
+          '405':
+             description: Invalid input
+          '200':
+             description: Success
+
