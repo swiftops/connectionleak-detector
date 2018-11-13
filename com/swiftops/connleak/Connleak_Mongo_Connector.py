@@ -3,7 +3,7 @@ from com.swiftops.connleak import ConnectionLeakCatcher as ConLeak
 import configparser
 
 config = configparser.ConfigParser()
-config.read("com/swiftops/connleak/db_conn.ini")
+config.read("com/swiftops/connleak/connleak.ini")
 
 
 def _get_db_collection():

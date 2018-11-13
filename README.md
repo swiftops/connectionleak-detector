@@ -14,8 +14,8 @@ $git clone https://github.com/swiftops/connectionleak-detector.git
 ##### Pre-Requisite:
 * Docker should be installed on your machine. Refer [Install Docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04) documentation.
 *  Change property file  present in this repository 
-    + db_conn.ini - to change db connection details
-    + connleak.ini - to set path of regex and ignore list files.
+
+    + connleak.ini - to set path of regex, ignore list files and db connection details.
     + connection_Leak_Regex.properties - to chage regex pattern for detecting connection leak in databse
     + Connection_Leak_IgnoreList.properties - to add method in ignore list with its class name. ( If method is returning resultset and it is closed in callig method and it is reported as for open connection leak such method need add in this file )
  
@@ -44,8 +44,8 @@ refer .gitlab-ci.yml file.
 * Python 3.6.0
 * MongoDB
 * Change property file  present in this repository 
-    + db_conn.ini - to change db connection details
-    + connleak.ini - to set path of regex and ignore list files.
+    
+    + connleak.ini - to set path of regex, ignore list files and db connection details.
     + connection_Leak_Regex.properties - to chage regex pattern for detecting connection leak in databse
     + Connection_Leak_IgnoreList.properties - to add method in ignore list with its class name. ( If method is returning resultset and it is closed in callig method and it is reported as for open connection leak such method need add in this file )  
 
